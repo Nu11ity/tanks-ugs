@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6945528790647772274}
   - component: {fileID: 7140990962926257144}
-  - component: {fileID: 7659025844300137196}
+  - component: {fileID: 4816792380431299232}
   - component: {fileID: 6655578628655878310}
   m_Layer: 0
   m_Name: TankTreads
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7659025844300137196
+--- !u!114 &4816792380431299232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 423485584838406874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: b248ca7b8b8bba249ab298ecb0ec1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 0
@@ -172,7 +172,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1500377635030903061}
   - component: {fileID: 7927800583859073520}
-  - component: {fileID: 5300627712947808703}
+  - component: {fileID: 3075316829512414518}
+  - component: {fileID: 3472878929516571327}
+  - component: {fileID: 8974987934520257204}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -217,7 +219,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &5300627712947808703
+--- !u!114 &3075316829512414518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666516973984245021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: b248ca7b8b8bba249ab298ecb0ec1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 1
@@ -247,6 +249,50 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!50 &3472878929516571327
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666516973984245021}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8974987934520257204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666516973984245021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7989c16f7e7587b4f97838b2cfd97526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: beb5d382716fffb46b7ac41a82ce8150, type: 2}
+  bodyTransform: {fileID: 6945528790647772274}
+  rb: {fileID: 3472878929516571327}
+  movementSpeed: 5
+  turningRate: 270
 --- !u!1 &6538187364357203144
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772971709994110588}
-  - component: {fileID: 4788902148399834411}
+  - component: {fileID: 1355162118917116261}
   m_Layer: 0
   m_Name: TurrentPivot
   m_TagString: Untagged
@@ -364,7 +410,7 @@ Transform:
   - {fileID: 8988246273749025326}
   m_Father: {fileID: 1500377635030903061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4788902148399834411
+--- !u!114 &1355162118917116261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,7 +419,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7043434544399490351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: b248ca7b8b8bba249ab298ecb0ec1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 0
