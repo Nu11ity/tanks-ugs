@@ -8,6 +8,7 @@ public class ProjectileLauncher : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] InputReader inputReader;
+    [SerializeField] CoinWallet wallet;
     [SerializeField] Transform projectileSpawnPoint;
     [SerializeField] GameObject serverProjectilePrefab;
     [SerializeField] GameObject clientProjectilePrefab;
@@ -18,9 +19,10 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] float projectileSpeed;
     [SerializeField] float fireRate;
     [SerializeField] float muzzleFlashDuration;
+    [SerializeField] int costToFire;
 
     private bool shouldFire;
-    private float previousFireTime;
+    private float timer;
     private float muzzleFlashTimer;
 
     public override void OnNetworkSpawn()
@@ -49,17 +51,24 @@ public class ProjectileLauncher : NetworkBehaviour
             }
         }
 
-        if(!IsOwner) return;
+        if(!IsOwner) { return; };
 
-        if(!shouldFire) { return; }
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
 
-        if(Time.time < (1 / fireRate) + previousFireTime) { return; }
+        if (!shouldFire) { return; }
+
+        if(timer > 0) { return; }
+
+        if (wallet.TotalCoins.Value < costToFire) { return; }
 
         PrimaryFireServerRpc(projectileSpawnPoint.position, projectileSpawnPoint.up);
 
         SpawnDummyProjectile(projectileSpawnPoint.position, projectileSpawnPoint.up);
 
-        previousFireTime = Time.time;
+        timer = 1 / fireRate;
     }
 
     private void HandlePrimaryFire(bool shouldFire)
@@ -70,6 +79,10 @@ public class ProjectileLauncher : NetworkBehaviour
     [ServerRpc]
     private void PrimaryFireServerRpc(Vector3 spawnPos, Vector3 direction)
     {
+        if (wallet.TotalCoins.Value < costToFire) { return; }
+
+        wallet.SpendCoins(costToFire);
+
         GameObject projectileInstance = Instantiate(
             serverProjectilePrefab,
             spawnPos,
@@ -78,6 +91,11 @@ public class ProjectileLauncher : NetworkBehaviour
         projectileInstance.transform.up = direction;
 
         Physics2D.IgnoreCollision(playerCollider, projectileInstance.GetComponent<Collider2D>());
+
+        if(projectileInstance.TryGetComponent<DealDamageOnContact>(out DealDamageOnContact dealDamage))
+        {
+            dealDamage.SetOwner(OwnerClientId);
+        }
 
         if (projectileInstance.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
         {
