@@ -10,12 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e651dbb3fbac04af2b8f5abf007ddc23, type: 3}
-  m_Name: Respawning Coin List
+  m_Name: CoinPrefabs
   m_EditorClassIdentifier: 
   IsDefault: 0
   List:
   - Override: 0
     Prefab: {fileID: 1235342628796779038, guid: 2a3363fcabba3ac4c854fbe4f685d33a, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 1074100292746868151, guid: 7aab638e970f9594390b4d5a6233ef21, type: 3}
     SourcePrefabToOverride: {fileID: 0}
     SourceHashToOverride: 0
     OverridingTargetPrefab: {fileID: 0}
