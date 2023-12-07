@@ -21,8 +21,9 @@ public class ServerGameManager : IDisposable
     private int serverPort;
     private int queryPort;
     private MatchplayBackfiller backfiller;
-    private NetworkServer networkServer;
     private MultiplayAllocationService multiplayAllocationService;
+
+    public NetworkServer NetworkServer { get; private set; }
 
     private const string GameSceneName = "Game";
 
@@ -31,7 +32,7 @@ public class ServerGameManager : IDisposable
         this.serverIP = serverIP;
         this.serverPort = serverPort;
         this.queryPort = queryPort;
-        networkServer = new NetworkServer(manager);
+        NetworkServer = new NetworkServer(manager);
         multiplayAllocationService = new MultiplayAllocationService();
     }
 
@@ -46,8 +47,8 @@ public class ServerGameManager : IDisposable
             if(matchmakerPayload != null)
             {
                 await StartBackfill(matchmakerPayload);
-                networkServer.OnUserJoined += UserJoined;
-                networkServer.OnUserLeft += UserLeft;
+                NetworkServer.OnUserJoined += UserJoined;
+                NetworkServer.OnUserLeft += UserLeft;
             }
             else
             {
@@ -59,7 +60,7 @@ public class ServerGameManager : IDisposable
             Debug.LogWarning(e);
         }
 
-        if(!networkServer.OpenConnection(serverIP, serverPort))
+        if(!NetworkServer.OpenConnection(serverIP, serverPort))
         {
             Debug.LogWarning("NetworkServer did not start as expected.");
             return;
@@ -130,11 +131,11 @@ public class ServerGameManager : IDisposable
 
     public void Dispose()
     {
-        networkServer.OnUserJoined -= UserJoined;
-        networkServer.OnUserLeft -= UserLeft;
+        NetworkServer.OnUserJoined -= UserJoined;
+        NetworkServer.OnUserLeft -= UserLeft;
 
         backfiller?.Dispose();
         multiplayAllocationService?.Dispose();
-        networkServer?.Dispose();
+        NetworkServer?.Dispose();
     }
 }
