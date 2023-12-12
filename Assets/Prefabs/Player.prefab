@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7140990962926257144}
   - component: {fileID: 4816792380431299232}
   - component: {fileID: 6655578628655878310}
+  - component: {fileID: 8121832205571561667}
   m_Layer: 0
   m_Name: TankTreads
   m_TagString: Untagged
@@ -165,6 +166,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.75, y: 2.05}
   m_EdgeRadius: 0
+--- !u!114 &8121832205571561667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423485584838406874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7199273d1b46747ad8201554712c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamColorLookup: {fileID: 11400000, guid: 0d015aee40a3db04ea127c4f7948de0d, type: 2}
+  player: {fileID: 7700720932376738812}
+  playerSprites:
+  - {fileID: 4248449346526374108}
+  - {fileID: 4665045970546352551}
 --- !u!1 &627415344201552463
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +434,8 @@ MonoBehaviour:
         byte0027: 0
         byte0028: 0
         byte0029: 0
+  TeamIndex:
+    m_InternalValue: 0
 --- !u!114 &8974987934520257204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +454,7 @@ MonoBehaviour:
   dustTrail: {fileID: 2897140423022905159}
   movementSpeed: 5
   turningRate: 270
-  particleEmmisionValue: 10
+  emissionRate: 10
 --- !u!114 &-5926376964553232610
 MonoBehaviour:
   m_ObjectHideFlags: 0
