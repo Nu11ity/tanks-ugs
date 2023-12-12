@@ -5,28 +5,25 @@ using UnityEngine;
 
 public class DealDamageOnContact : MonoBehaviour
 {
+    [SerializeField] Projectile projectile;
     [SerializeField] int damage = 5;
 
-    private ulong ownerClientId;
-
-    public void SetOwner(ulong ownerClientId)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        this.ownerClientId = ownerClientId;
-    }
+        if(col.attachedRigidbody == null) { return; }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.attachedRigidbody == null) { return; }
-
-        if(collision.attachedRigidbody.TryGetComponent<NetworkObject>(out NetworkObject netObj))
+        if(projectile.TeamIndex != -1)
         {
-            if(ownerClientId == netObj.OwnerClientId) 
-            { 
-                return; 
+            if (col.attachedRigidbody.TryGetComponent<TankPlayer>(out TankPlayer player))
+            {
+                if (player.TeamIndex.Value == projectile.TeamIndex)
+                {
+                    return;
+                }
             }
         }
-
-        if(collision.attachedRigidbody.TryGetComponent<Health>(out Health health))
+        
+        if(col.attachedRigidbody.TryGetComponent<Health>(out Health health))
         {
             health.TakeDamage(damage);
         }

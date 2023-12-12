@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed42d519a8bd4d546ac88a3e044952fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7700720932376738812}
   inputReader: {fileID: 11400000, guid: beb5d382716fffb46b7ac41a82ce8150, type: 2}
   wallet: {fileID: 2445344950151762983}
   projectileSpawnPoint: {fileID: 274376432503506125}
