@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroySelfOnContact : MonoBehaviour
 {
-    [SerializeField] private Projectile projectile;
+    [SerializeField] Projectile projectile;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
