@@ -1,6 +1,20 @@
-# Unity Gaming Services Integration
+# Tanks of Neon
 
-This project is built as a template to easily create a solid base for one's multiplayer game when choosing to use Unity Gaming Services. The services used are Relay, Lobby, and Multiplay. I've added support for client-hosted games, which is ideal if you're trying to save on cost and go for a more casual game. If you're looking into doing something with competitive play, the dedicated server support is there. You can choose between connecting Multiplay through Unity's cloud dashboard or running your own dedicated servers.
+This template repo was used as a base for the development of Tanks of Neon. 
+
+- [itch.io store page for Tanks of Neon](https://nevermorrow-games.itch.io/tanks-of-neon)
+- [Tanks of Neon gameplay trailer](https://www.youtube.com/watch?v=r46W2Oa90tg)
+  
+![Tanks of Neon](https://media.giphy.com/media/SD4KVdsLg0Q2kDIKUn/giphy.gif)
+![Tanks of Neon](https://media.giphy.com/media/Oyhl5TJOcm98E77MWy/giphy.gif)
+![Tanks of Neon](https://media.giphy.com/media/hxk8hMVa8Fff1cZguV/giphy.gif)
+![Tanks of Neon](https://media.giphy.com/media/UYeyul5eqWB8NsoWOJ/giphy.gif)
+![Tanks of Neon](https://media.giphy.com/media/GdikIOXAuSBgSdj58p/giphy.gif)
+![Tanks of Neon](https://media.giphy.com/media/JtxHehecBKR49AmUJp/giphy.gif)
+
+## Unity Gaming Services Integration
+
+This project is built as a template to easily create a solid base for one's multiplayer game when choosing to use Unity Gaming Services. The services used are Relay, Lobby, Multiplay, and Netcode for Gameobjects. I've added support for client-hosted games, which is ideal if you're trying to save on cost and go for a more casual game. If you're looking into doing something with competitive play, the dedicated server support is there. You can choose between connecting Multiplay through Unity's cloud dashboard or running your own dedicated servers.
 
 ## Prerequisites
 
@@ -25,10 +39,10 @@ This repository contains a Unity project that utilizes Unity Gaming Services. Th
 
 Check out the project demo on YouTube:
 
-[Tanks UGS Integration Demo](https://www.youtube.com/watch?v=ybp2_9mRx_w)
+[Check out the Tanks UGS YouTube demo](https://www.youtube.com/watch?v=ybp2_9mRx_w)
 
-![tanks-ugs](https://media.giphy.com/media/8wwUSHG4pfQbkjgGMs/giphy.gif)
-![tanks-ugs](https://media.giphy.com/media/4yOecR8qxZ671L2sKM/giphy.gif)
-![tanks-ugs](https://media.giphy.com/media/rC4ICgVgZBzU9fFavj/giphy.gif)
-![tanks-ugs](https://media.giphy.com/media/Oi3I5f05Cw4LZBBja0/giphy.gif)
-![tanks-ugs](https://media.giphy.com/media/ScSiDixos0HtqEQEPc/giphy.gif)
+![Tanks UGS Template Repo](https://media.giphy.com/media/8wwUSHG4pfQbkjgGMs/giphy.gif)
+![Tanks UGS Template Repo](https://media.giphy.com/media/4yOecR8qxZ671L2sKM/giphy.gif)
+![Tanks UGS Template Repo](https://media.giphy.com/media/rC4ICgVgZBzU9fFavj/giphy.gif)
+![Tanks UGS Template Repo](https://media.giphy.com/media/Oi3I5f05Cw4LZBBja0/giphy.gif)
+![Tanks UGS Template Repo](https://media.giphy.com/media/ScSiDixos0HtqEQEPc/giphy.gif)
